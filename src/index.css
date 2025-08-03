@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth bg-dark-base;
+  }
+  
+  body {
+    @apply antialiased bg-dark-base text-text-primary;
+  }
+
+  ::selection {
+    @apply bg-primary text-white;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-base;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded-full hover:bg-text-muted;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30;
+  }
+
+  .btn-primary::before {
+    @apply absolute inset-0 bg-gradient-to-r from-primary-light to-accent-cyan opacity-0 transition-opacity duration-300;
+    content: '';
+  }
+
+  .btn-primary:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-primary span {
+    @apply relative z-10;
+  }
+  
+  .btn-secondary {
+    @apply relative px-8 py-4 border-2 border-primary text-primary font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:text-white hover:border-primary-light hover:shadow-xl hover:shadow-primary/20;
+  }
+
+  .btn-secondary::before {
+    @apply absolute inset-0 bg-gradient-primary -translate-x-full transition-transform duration-500;
+    content: '';
+  }
+
+  .btn-secondary:hover::before {
+    @apply translate-x-0;
+  }
+
+  .btn-secondary span {
+    @apply relative z-10;
+  }
+
+  .glass-card {
+    @apply bg-gradient-card backdrop-blur-md border border-dark-border rounded-2xl;
+  }
+
+  .section-padding {
+    @apply px-6 sm:px-8 lg:px-12;
+  }
+  
+  .max-width-container {
+    @apply max-w-[1400px] mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-primary bg-clip-text text-transparent;
+  }
+
+  .glow {
+    @apply drop-shadow-[0_0_20px_rgba(0,102,255,0.5)];
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:drop-shadow-[0_0_30px_rgba(0,102,255,0.7)];
+  }
+}
