@@ -60,19 +60,20 @@ const Contact: React.FC = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setShowSuccess(true);
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        serviceType: '',
-        timeline: '',
-        budget: '',
-        description: ''
-      });
-      setShowSuccess(false);
-    }, 3000);
+    // Don't auto-hide the success message
+  };
+
+  const handleNewSubmission = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      serviceType: '',
+      timeline: '',
+      budget: '',
+      description: ''
+    });
+    setShowSuccess(false);
   };
 
   return (
@@ -90,14 +91,47 @@ const Contact: React.FC = () => {
         <div className="grid lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12">
           <div className="lg:col-span-2">
             <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-4 sm:p-6 lg:p-8 relative">
-              {/* Success Toast Message */}
+              {/* Success Card Overlay */}
               {showSuccess && (
-                <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-50">
-                  <div className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-3 animate-slide-down">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="font-medium">Successfully Registered! We'll contact you within 24 hours.</span>
+                <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+                  <div className="bg-dark-card border border-dark-border rounded-2xl p-8 max-w-md w-full text-center animate-scale-up">
+                    {/* Success Icon */}
+                    <div className="relative mb-6">
+                      <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-green-500/30">
+                        <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      {/* Decorative dots */}
+                      <div className="absolute -top-2 -left-4 w-3 h-3 bg-accent-cyan/30 rounded-full"></div>
+                      <div className="absolute -bottom-1 -right-6 w-4 h-4 bg-accent-gold/30 rounded-full"></div>
+                      <div className="absolute top-8 -right-8 w-2 h-2 bg-primary/30 rounded-full"></div>
+                    </div>
+                    
+                    {/* Thank You Message */}
+                    <h2 className="text-3xl font-bold text-text-primary mb-3">Thank You!</h2>
+                    <p className="text-text-secondary mb-8">
+                      Your quote request has been received. We will get back to you shortly.
+                    </p>
+                    
+                    {/* Send Another Request Button */}
+                    <button
+                      onClick={handleNewSubmission}
+                      className="bg-gradient-primary hover:shadow-lg hover:shadow-primary/30 text-white px-8 py-3 rounded-lg transition-all duration-300 font-semibold hover:scale-105"
+                    >
+                      Send Another Request
+                    </button>
+                    
+                    {/* Close button */}
+                    <button
+                      onClick={() => setShowSuccess(false)}
+                      className="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors"
+                      aria-label="Close"
+                    >
+                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               )}

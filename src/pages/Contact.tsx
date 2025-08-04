@@ -17,6 +17,7 @@ interface FormData {
 
 const Contact: React.FC = () => {
   const [step, setStep] = useState(1);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -110,7 +111,22 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We\'ll get back to you within 24 hours.');
+    setShowSuccess(true);
+  };
+
+  const handleNewSubmission = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      serviceType: '',
+      projectDetails: '',
+      personalNote: '',
+      timeline: '',
+      services: []
+    });
+    setStep(1);
+    setShowSuccess(false);
   };
 
   const stepVariants = {
@@ -122,6 +138,50 @@ const Contact: React.FC = () => {
   return (
     <PageTransition>
       <section className="pt-32 pb-20">
+        {/* Success Card Overlay */}
+        {showSuccess && (
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-dark-card border border-dark-border rounded-2xl p-8 max-w-md w-full text-center animate-scale-up">
+              {/* Success Icon */}
+              <div className="relative mb-6">
+                <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-green-500/30">
+                  <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                {/* Decorative dots */}
+                <div className="absolute -top-2 -left-4 w-3 h-3 bg-accent-cyan/30 rounded-full"></div>
+                <div className="absolute -bottom-1 -right-6 w-4 h-4 bg-accent-gold/30 rounded-full"></div>
+                <div className="absolute top-8 -right-8 w-2 h-2 bg-primary/30 rounded-full"></div>
+              </div>
+              
+              {/* Thank You Message */}
+              <h2 className="text-3xl font-bold text-text-primary mb-3">Thank You!</h2>
+              <p className="text-text-secondary mb-8">
+                Your quote request has been received. We will get back to you shortly.
+              </p>
+              
+              {/* Send Another Request Button */}
+              <button
+                onClick={handleNewSubmission}
+                className="bg-gradient-primary hover:shadow-lg hover:shadow-primary/30 text-white px-8 py-3 rounded-lg transition-all duration-300 font-semibold hover:scale-105"
+              >
+                Send Another Request
+              </button>
+              
+              {/* Close button */}
+              <button
+                onClick={() => setShowSuccess(false)}
+                className="absolute top-4 right-4 text-text-muted hover:text-text-primary transition-colors"
+                aria-label="Close"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        )}
         <motion.div
           initial="hidden"
           animate="visible"
@@ -224,7 +284,10 @@ const Contact: React.FC = () => {
                         </div>
                       </div>
                       <button
-                        onClick={() => setStep(2)}
+                        onClick={() => {
+                          setStep(2);
+                          document.querySelector('.glass-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
                         className="btn-primary"
                       >
                         <span>Next: Project Details</span>
@@ -293,13 +356,19 @@ const Contact: React.FC = () => {
                       </div>
                       <div className="flex gap-4">
                         <button
-                          onClick={() => setStep(1)}
+                          onClick={() => {
+                            setStep(1);
+                            document.querySelector('.glass-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
                           className="btn-secondary"
                         >
                           <span>Back</span>
                         </button>
                         <button
-                          onClick={() => setStep(3)}
+                          onClick={() => {
+                            setStep(3);
+                            document.querySelector('.glass-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
                           className="btn-primary"
                         >
                           <span>Next: Additional Information</span>
@@ -353,7 +422,10 @@ const Contact: React.FC = () => {
                       </div>
                       <div className="flex gap-4">
                         <button
-                          onClick={() => setStep(2)}
+                          onClick={() => {
+                            setStep(2);
+                            document.querySelector('.glass-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
                           className="btn-secondary"
                         >
                           <span>Back</span>
