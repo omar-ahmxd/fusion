@@ -54,43 +54,43 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-width-container section-padding">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral mb-4">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral mb-3 sm:mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
             Don't just take our word for it - hear from businesses who trust us with their print and design needs
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-gray-50 rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-gray-50 rounded-lg p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="flex mb-4">{renderStars(testimonial.rating)}</div>
-              <p className="text-gray-700 mb-6 italic leading-relaxed">
+              <div className="flex mb-3 sm:mb-4">{renderStars(testimonial.rating)}</div>
+              <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 italic leading-relaxed">
                 "{testimonial.quote}"
               </p>
-              <div className="border-t pt-4">
-                <p className="font-semibold text-neutral">{testimonial.name}</p>
-                <p className="text-gray-600 text-sm">{testimonial.company}</p>
+              <div className="border-t pt-3 sm:pt-4">
+                <p className="font-semibold text-sm sm:text-base text-neutral">{testimonial.name}</p>
+                <p className="text-gray-600 text-xs sm:text-sm">{testimonial.company}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-primary to-secondary rounded-xl p-8 text-white text-center">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+        <div className="mt-12 sm:mt-14 lg:mt-16 bg-gradient-to-r from-primary to-secondary rounded-xl p-6 sm:p-8 text-white text-center">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
             Join 500+ Satisfied Clients
           </h3>
-          <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg opacity-90 mb-4 sm:mb-6 max-w-2xl mx-auto px-4 sm:px-0">
             Experience the difference of working with a partner who understands your vision and delivers results
           </p>
-          <a href="#contact" className="btn-primary bg-white text-primary hover:bg-gray-100">
+          <a href="#contact" className="btn-primary bg-white text-primary hover:bg-gray-100 inline-block text-sm sm:text-base">
             Start Your Project Today
           </a>
         </div>

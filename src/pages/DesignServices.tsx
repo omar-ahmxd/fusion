@@ -91,7 +91,7 @@ const DesignServices: React.FC = () => {
 
   return (
     <PageTransition>
-      <section className="pt-20">
+      <section className="pt-24 sm:pt-28 lg:pt-32">
         <motion.div
           ref={heroRef}
           animate={heroControls}

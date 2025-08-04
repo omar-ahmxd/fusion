@@ -29,21 +29,21 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-dark-section border-t border-dark-border">
-      <div className="max-width-container section-padding py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="max-width-container section-padding py-12 sm:py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
           <div className="lg:col-span-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <Link to="/" className="inline-block mb-6">
-                <h2 className="text-2xl font-bold">
+              <Link to="/" className="inline-block mb-4 sm:mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold">
                   <span className="text-text-primary">Fusion</span>{' '}
                   <span className="text-gradient">Print & Design</span>
                 </h2>
               </Link>
-              <p className="text-text-secondary mb-6 max-w-sm">
+              <p className="text-sm sm:text-base text-text-secondary mb-4 sm:mb-6 max-w-sm">
                 Where technology meets creativity. Your complete solution for print and design needs, 
                 delivering excellence from concept to completion.
               </p>
@@ -89,13 +89,13 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <h3 className="text-lg font-semibold text-text-primary mb-4">Services</h3>
-              <ul className="space-y-3">
+              <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-3 sm:mb-4">Services</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.services.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-text-secondary hover:text-primary transition-colors"
+                      className="text-sm sm:text-base text-text-secondary hover:text-primary transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -112,13 +112,13 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <h3 className="text-lg font-semibold text-text-primary mb-4">Company</h3>
-              <ul className="space-y-3">
+              <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-3 sm:mb-4">Company</h3>
+              <ul className="space-y-2 sm:space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="text-text-secondary hover:text-primary transition-colors"
+                      className="text-sm sm:text-base text-text-secondary hover:text-primary transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -137,18 +137,18 @@ const Footer: React.FC = () => {
           transition={{ delay: 0.4 }}
           className="pt-8 border-t border-dark-border"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-text-muted text-sm">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <p className="text-text-muted text-xs sm:text-sm text-center sm:text-left">
               © {currentYear} Fusion Print & Design. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-text-muted hover:text-primary transition-colors">
+            <div className="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 text-xs sm:text-sm">
+              <a href="#" className="text-text-muted hover:text-primary transition-colors whitespace-nowrap">
                 Privacy Policy
               </a>
-              <a href="#" className="text-text-muted hover:text-primary transition-colors">
+              <a href="#" className="text-text-muted hover:text-primary transition-colors whitespace-nowrap">
                 Terms of Service
               </a>
-              <a href="#" className="text-text-muted hover:text-primary transition-colors">
+              <a href="#" className="text-text-muted hover:text-primary transition-colors whitespace-nowrap">
                 Cookie Policy
               </a>
             </div>

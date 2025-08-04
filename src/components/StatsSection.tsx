@@ -63,19 +63,19 @@ const StatsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-bg dark:to-dark-section">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-dark-bg dark:to-dark-section">
       <div className="max-width-container section-padding">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10 lg:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary mb-3 sm:mb-4">
             Our Journey in <span className="text-gradient">Numbers</span>
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-text-secondary max-w-2xl mx-auto px-4 sm:px-0">
             A decade of dedication to quality and innovation has earned us the trust of hundreds of satisfied clients
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ const StatsSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -94,11 +94,11 @@ const StatsSection: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               className="relative group"
             >
-              <div className="relative bg-white dark:bg-dark-card rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="relative bg-white dark:bg-dark-card rounded-2xl p-4 sm:p-6 lg:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`}></div>
                 
                 <motion.div
-                  className="text-4xl mb-4"
+                  className="text-3xl sm:text-4xl mb-3 sm:mb-4"
                   initial={{ rotate: 0 }}
                   whileHover={{ rotate: [0, -10, 10, -10, 10, 0] }}
                   transition={{ duration: 0.5 }}
@@ -106,7 +106,7 @@ const StatsSection: React.FC = () => {
                   {stat.icon}
                 </motion.div>
 
-                <div className="text-4xl md:text-5xl font-bold text-text-primary mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-1 sm:mb-2">
                   {inView && (
                     <CountUp
                       end={stat.value}
@@ -116,7 +116,7 @@ const StatsSection: React.FC = () => {
                   )}
                 </div>
 
-                <p className="text-text-secondary text-sm">{stat.label}</p>
+                <p className="text-text-secondary text-xs sm:text-sm">{stat.label}</p>
 
                 <motion.div
                   className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${stat.color} rounded-b-2xl`}

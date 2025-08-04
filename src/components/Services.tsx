@@ -91,23 +91,23 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-width-container section-padding">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-neutral mb-4">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral mb-3 sm:mb-4">
             Our Comprehensive Services
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
             From concept to completion, we offer every service you need for your print and design projects
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-center mb-8 space-y-4 md:space-y-0 md:space-x-4">
+        <div className="flex flex-col sm:flex-row justify-center mb-6 sm:mb-8 space-y-3 sm:space-y-0 sm:space-x-3 lg:space-x-4">
           {serviceCategories.map((category, index) => (
             <button
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+              className={`px-4 sm:px-5 lg:px-6 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 ${
                 activeTab === index
                   ? 'bg-primary text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -119,11 +119,11 @@ const Services: React.FC = () => {
           ))}
         </div>
 
-        <div className="bg-gray-50 rounded-xl p-8">
+        <div className="bg-gray-50 rounded-xl p-4 sm:p-6 lg:p-8">
           {serviceCategories[activeTab].services.map((serviceGroup, index) => (
-            <div key={index} className="mb-8 last:mb-0">
-              <h3 className="text-xl font-bold text-primary mb-4">{serviceGroup.name}</h3>
-              <div className="grid md:grid-cols-2 gap-3">
+            <div key={index} className="mb-6 sm:mb-8 last:mb-0">
+              <h3 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4">{serviceGroup.name}</h3>
+              <div className="grid sm:grid-cols-2 gap-2 sm:gap-3">
                 {serviceGroup.items.map((item, itemIndex) => (
                   <div key={itemIndex} className="flex items-start">
                     <svg
@@ -139,7 +139,7 @@ const Services: React.FC = () => {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-sm sm:text-base text-gray-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -147,7 +147,7 @@ const Services: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-6 sm:mt-8">
           <a href="#contact" className="btn-primary">
             Get Quote for Your Project
           </a>

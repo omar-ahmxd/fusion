@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
@@ -49,26 +49,6 @@ const Header: React.FC = () => {
     }
   };
 
-  const mobileMenuVariants = {
-    closed: {
-      x: '100%',
-      opacity: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 40
-      }
-    },
-    open: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 40
-      }
-    }
-  };
 
   return (
     <>
@@ -134,95 +114,93 @@ const Header: React.FC = () => {
               ))}
             </nav>
 
-            <motion.button
-              className="lg:hidden text-text-primary hover:text-accent-cyan transition-colors"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            {!isMenuOpen && (
+              <motion.button
+                className="lg:hidden text-text-primary hover:text-accent-cyan transition-colors z-50"
+                onClick={() => setIsMenuOpen(true)}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M4 6h16M4 12h16M4 18h16"
                   />
-                )}
-              </svg>
-            </motion.button>
+                </svg>
+              </motion.button>
+            )}
           </div>
         </div>
       </motion.header>
 
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            variants={mobileMenuVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-            className="fixed inset-y-0 right-0 w-full max-w-sm z-50 bg-dark-card/95 backdrop-blur-xl border-l border-dark-border lg:hidden"
-          >
-            <div className="flex flex-col h-full pt-20 pb-6 px-6">
-              <nav className="flex-1 space-y-4">
-                {navItems.filter(item => item.label !== 'Contact').map((item, index) => (
-                  <motion.div
+      {/* Mobile Menu - No Animations */}
+      {isMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-30 lg:hidden"
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Menu Panel */}
+          <div className="fixed inset-y-0 right-0 w-[80%] max-w-sm z-40 bg-dark-base lg:hidden shadow-2xl">
+            <div className="h-full flex flex-col">
+              {/* Navigation Links */}
+              <nav className="flex-1 px-6 pt-20">
+                {/* Menu Items */}
+                {navItems.map((item) => (
+                  <Link
                     key={item.label}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    to={item.href}
+                    className="block py-4 text-lg font-medium text-text-primary hover:text-accent-cyan transition-colors border-b border-dark-border"
+                    onClick={() => setIsMenuOpen(false)}
                   >
-                    <Link
-                      to={item.href}
-                      className="block py-3 text-lg text-text-secondary hover:text-accent-cyan transition-colors"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
+                    {item.label}
+                  </Link>
                 ))}
+                
+                {/* Go Back to Home Button */}
+                <Link
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center gap-3 py-4 mt-4 text-lg font-medium text-accent-cyan hover:text-accent-gold transition-colors"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    />
+                  </svg>
+                  Go Back
+                </Link>
               </nav>
               
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="mt-auto"
-              >
-                <Link
-                  to="/contact"
-                  className="btn-primary w-full text-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span>Contact</span>
-                </Link>
-              </motion.div>
+              {/* Footer */}
+              <div className="p-6 border-t border-dark-border">
+                <p className="text-text-muted text-sm text-center">
+                  © 2024 Fusion Print & Design
+                </p>
+              </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
-          onClick={() => setIsMenuOpen(false)}
-        />
+          </div>
+        </>
       )}
     </>
   );

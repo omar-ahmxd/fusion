@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes slide-down {
+  0% {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
 @layer base {
   html {
     @apply scroll-smooth bg-dark-base;
@@ -30,7 +45,7 @@
 
 @layer components {
   .btn-primary {
-    @apply relative px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30;
+    @apply relative px-4 sm:px-6 lg:px-8 py-3 sm:py-4 bg-gradient-primary text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary/30;
   }
 
   .btn-primary::before {
@@ -47,7 +62,7 @@
   }
   
   .btn-secondary {
-    @apply relative px-8 py-4 border-2 border-primary text-primary font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:text-white hover:border-primary-light hover:shadow-xl hover:shadow-primary/20;
+    @apply relative px-4 sm:px-6 lg:px-8 py-3 sm:py-4 border-2 border-primary text-primary font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:text-white hover:border-primary-light hover:shadow-xl hover:shadow-primary/20;
   }
 
   .btn-secondary::before {
