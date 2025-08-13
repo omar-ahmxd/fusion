@@ -82,7 +82,7 @@ const DesignServices: React.FC = () => {
         { value: 99, label: 'Uptime Guarantee', suffix: '%' },
         { value: 3, label: 'Second Load Time', suffix: 's' }
       ],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+      image: '/web-development.png',
       color: 'from-accent-cyan/20 to-blue-600/20'
     }
   };

@@ -68,7 +68,7 @@ const PrintingServices: React.FC = () => {
         'Perforation'
       ],
       icon: '✂️',
-      image: '/image.png',
+      image: '/finishing-services.png',
       specifications: [
         { label: 'Cutting', value: 'All types of papers and boards' },
         { label: 'Lamination Types', value: 'Gloss, Matte, Thermal' },
@@ -87,7 +87,7 @@ const PrintingServices: React.FC = () => {
         'Gold foiling'
       ],
       icon: '🎯',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800',
+      image: '/specialty-printing.png',
       specifications: [
         { label: 'Cup Types', value: 'Ceramic, Glass' },
         { label: 'Stamp Materials', value: 'Rubber' },
@@ -111,17 +111,9 @@ const PrintingServices: React.FC = () => {
           animate={heroControls}
           initial="hidden"
           variants={fadeInUp}
-          className="relative h-[60vh] flex items-center justify-center overflow-hidden"
+          className="relative py-20 flex items-center justify-center"
         >
-          <div className="absolute inset-0">
-            <img
-              src="/mnt/c/Users/9500130411/Desktop/inza/business-success-with-modern-technology-equipment-generated-by-ai.jpg"
-              alt="Business success with modern technology"
-              className="w-full h-full object-cover"
-              style={{ filter: 'brightness(0.3)' }}
-            />
-          </div>
-          <div className="relative z-10 text-center max-width-container section-padding">
+          <div className="text-center max-width-container section-padding">
             <motion.h1
               className="text-5xl md:text-7xl font-bold mb-6"
               variants={fadeInUp}

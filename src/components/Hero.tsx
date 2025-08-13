@@ -66,17 +66,17 @@ const Hero: React.FC = () => {
   };
 
   const printServices = [
-    { icon: '🖨️', label: 'Digital Print' },
-    { icon: '📄', label: 'Offset' },
-    { icon: '✨', label: 'UV Coating' },
-    { icon: '✂️', label: 'Finishing' },
+    { icon: '🖨️', label: 'Digital Print', link: '/services/printing' },
+    { icon: '📄', label: 'Offset', link: '/services/printing' },
+    { icon: '✨', label: 'UV Coating', link: '/services/printing' },
+    { icon: '✂️', label: 'Finishing', link: '/services/printing' },
   ];
 
   const designServices = [
-    { icon: '🎨', label: 'Graphic Design' },
-    { icon: '💻', label: 'Web Dev' },
-    { icon: '🎬', label: 'Video' },
-    { icon: '🚀', label: 'Branding' },
+    { icon: '🎨', label: 'Graphic Design', link: '/services/design' },
+    { icon: '💻', label: 'Web Dev', link: '/services/design' },
+    { icon: '🎬', label: 'Video', link: '/services/design' },
+    { icon: '🚀', label: 'Branding', link: '/services/design' },
   ];
 
   return (
@@ -129,31 +129,21 @@ const Hero: React.FC = () => {
 
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-6 lg:mb-8">
               {printServices.map((service, index) => (
-                <motion.div
-                  key={service.label}
-                  custom={index}
-                  variants={iconVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="glass-card p-2 sm:p-3"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
-                  <div className="text-xl sm:text-2xl mb-1">{service.icon}</div>
-                  <div className="text-[10px] sm:text-xs text-text-secondary">{service.label}</div>
-                </motion.div>
+                <Link key={service.label} to={service.link}>
+                  <motion.div
+                    custom={index}
+                    variants={iconVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="glass-card p-2 sm:p-3 cursor-pointer"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    <div className="text-xl sm:text-2xl mb-1">{service.icon}</div>
+                    <div className="text-[10px] sm:text-xs text-text-secondary">{service.label}</div>
+                  </motion.div>
+                </Link>
               ))}
             </div>
-
-            <Link to="/services/printing" className="btn-primary group text-sm sm:text-base">
-              <span>Explore Printing</span>
-              <motion.span
-                className="inline-block ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                →
-              </motion.span>
-            </Link>
           </motion.div>
         </motion.div>
 
@@ -205,31 +195,21 @@ const Hero: React.FC = () => {
 
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-6 lg:mb-8">
               {designServices.map((service, index) => (
-                <motion.div
-                  key={service.label}
-                  custom={index}
-                  variants={iconVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="glass-card p-2 sm:p-3"
-                  whileHover={{ scale: 1.1, rotate: -5 }}
-                >
-                  <div className="text-xl sm:text-2xl mb-1">{service.icon}</div>
-                  <div className="text-[10px] sm:text-xs text-text-secondary">{service.label}</div>
-                </motion.div>
+                <Link key={service.label} to={service.link}>
+                  <motion.div
+                    custom={index}
+                    variants={iconVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="glass-card p-2 sm:p-3 cursor-pointer"
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                  >
+                    <div className="text-xl sm:text-2xl mb-1">{service.icon}</div>
+                    <div className="text-[10px] sm:text-xs text-text-secondary">{service.label}</div>
+                  </motion.div>
+                </Link>
               ))}
             </div>
-
-            <Link to="/services/design" className="btn-primary group text-sm sm:text-base">
-              <span>Explore Design</span>
-              <motion.span
-                className="inline-block ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                →
-              </motion.span>
-            </Link>
           </motion.div>
         </motion.div>
       </div>

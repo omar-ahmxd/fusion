@@ -272,24 +272,17 @@ const Contact: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-bold text-neutral mb-3 sm:mb-4">Contact Information</h3>
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start">
-                  <span className="text-primary mr-3">📍</span>
-                  <div>
-                    <p className="font-medium text-sm sm:text-base">Address</p>
-                    <p className="text-gray-600 text-sm sm:text-base">123 Business Park, Suite 100<br />Your City, State 12345</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
                   <span className="text-primary mr-3">📞</span>
                   <div>
                     <p className="font-medium text-sm sm:text-base">Phone</p>
-                    <p className="text-gray-600 text-sm sm:text-base">(123) 456-7890</p>
+                    <p className="text-gray-600 text-sm sm:text-base">9841100373</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <span className="text-primary mr-3">✉️</span>
                   <div>
                     <p className="font-medium text-sm sm:text-base">Email</p>
-                    <p className="text-gray-600 text-sm sm:text-base">info@fusionprintdesign.com</p>
+                    <p className="text-gray-600 text-sm sm:text-base">fusionprintdesigns@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -322,7 +315,7 @@ const Contact: React.FC = () => {
                 We typically respond to all inquiries within 2-4 hours during business hours.
               </p>
               <a
-                href="tel:+1234567890"
+                href="tel:+919841100373"
                 className="btn-secondary w-full text-center text-sm sm:text-base"
               >
                 Call Now for Instant Quote

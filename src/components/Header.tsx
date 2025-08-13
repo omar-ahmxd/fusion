@@ -58,19 +58,31 @@ const Header: React.FC = () => {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-dark-base/80 backdrop-blur-xl border-b border-dark-border' 
-            : 'bg-transparent'
+            ? 'bg-black/95 backdrop-blur-xl border-b border-dark-border' 
+            : 'bg-black/90 backdrop-blur-sm'
         }`}
       >
         <div className="max-width-container section-padding">
           <div className="flex items-center justify-between h-20">
+            {/* Left side: Logo and Company Name */}
             <motion.div
               variants={logoVariants}
               initial="initial"
               animate="animate"
               whileHover="hover"
+              className="flex items-center space-x-4"
             >
-              <Link to="/" className="flex items-center space-x-2">
+              <Link to="/" className="flex items-center space-x-4">
+                {/* Logo */}
+                <div className="relative w-14 h-14 flex-shrink-0">
+                  <img 
+                    src="/fpd-logo.png" 
+                    alt="Fusion Print & Design Logo" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                
+                {/* Company Name */}
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-primary blur-lg opacity-50 animate-pulse-slow"></div>
                   <h1 className="relative text-2xl font-bold">

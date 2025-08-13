@@ -454,18 +454,11 @@ const Contact: React.FC = () => {
                 <div className="space-y-4">
                   <div>
                     <div className="text-text-secondary text-sm">Phone</div>
-                    <div className="text-text-primary">(123) 456-7890</div>
+                    <div className="text-text-primary">9841100373</div>
                   </div>
                   <div>
                     <div className="text-text-secondary text-sm">Email</div>
-                    <div className="text-text-primary">info@fusionprintdesign.com</div>
-                  </div>
-                  <div>
-                    <div className="text-text-secondary text-sm">Address</div>
-                    <div className="text-text-primary">
-                      123 Business Park, Suite 100<br />
-                      Your City, State 12345
-                    </div>
+                    <div className="text-text-primary">fusionprintdesigns@gmail.com</div>
                   </div>
                 </div>
               </motion.div>
