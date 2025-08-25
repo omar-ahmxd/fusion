@@ -11,7 +11,7 @@ const Services: React.FC = () => {
       path: '/services/printing',
       description: 'State-of-the-art printing solutions with premium finishing options',
       image: 'https://images.unsplash.com/photo-1614107151491-6876eecbff89?w=800',
-      features: ['Digital & Offset', 'UV Printing', 'Large Format', 'Finishing Services'],
+      features: ['Multicolour Offset', 'UV Printing', 'Large Format', 'Finishing Services'],
       color: 'from-primary/20 to-purple-600/20'
     },
     {
@@ -19,7 +19,7 @@ const Services: React.FC = () => {
       path: '/services/design',
       description: 'Creative design solutions that bring your vision to life',
       image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800',
-      features: ['Graphic Design', 'Web Development', 'Video Production', 'Branding'],
+      features: ['Graphic Design', 'Web Development', 'Video Production', 'UI/UX Design'],
       color: 'from-accent-cyan/20 to-blue-600/20'
     }
   ];
@@ -44,7 +44,7 @@ const Services: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {services.map((service, index) => (
               <motion.div
                 key={service.category}
@@ -54,38 +54,38 @@ const Services: React.FC = () => {
                 className="group"
               >
                 <Link to={service.path} className="block">
-                  <div className="relative overflow-hidden rounded-3xl">
+                  <div className="relative overflow-hidden rounded-2xl md:rounded-3xl">
                     <div className={`absolute inset-0 bg-gradient-to-br ${service.color} z-10`}></div>
                     <img
                       src={service.image}
                       alt={service.category}
-                      className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-64 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-base via-dark-base/50 to-transparent z-20"></div>
                     
-                    <div className="absolute bottom-0 left-0 right-0 p-8 z-30">
-                      <h2 className="text-3xl font-bold text-text-primary mb-3">
+                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-30">
+                      <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-2 md:mb-3">
                         {service.category}
                       </h2>
-                      <p className="text-text-secondary mb-6">
+                      <p className="text-text-secondary text-sm md:text-base mb-4 md:mb-6">
                         {service.description}
                       </p>
-                      <div className="flex flex-wrap gap-3 mb-6">
+                      <div className="flex flex-wrap gap-2 md:gap-3 mb-4 md:mb-6">
                         {service.features.map((feature) => (
                           <span
                             key={feature}
-                            className="px-3 py-1 glass-card text-text-secondary text-sm rounded-full"
+                            className="px-2 md:px-3 py-1 glass-card text-text-secondary text-xs md:text-sm rounded-full"
                           >
                             {feature}
                           </span>
                         ))}
                       </div>
                       <motion.div
-                        className="inline-flex items-center text-primary font-semibold"
+                        className="inline-flex items-center text-primary font-semibold text-sm md:text-base"
                         whileHover={{ x: 10 }}
                       >
                         Explore Services
-                        <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </motion.div>

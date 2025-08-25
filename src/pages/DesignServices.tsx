@@ -32,12 +32,14 @@ const DesignServices: React.FC = () => {
         'Logo',
         'Letter head',
         'Visiting card',
-        'Invitation/greeting card',
+        'Invitation card',
+        'Greeting card',
         'Brochure',
         'Invoice',
         'Label and tags',
         'Catalogue',
         'Pamphlet',
+        'Pagination',
         'Packaging',
         'Business card',
         'Banner',
@@ -84,6 +86,72 @@ const DesignServices: React.FC = () => {
       ],
       image: '/web-development.png',
       color: 'from-accent-cyan/20 to-blue-600/20'
+    },
+    uiux: {
+      id: 'uiux',
+      title: 'UI/UX Design',
+      subtitle: 'User-Centered Digital Experiences',
+      description: 'Create intuitive and engaging interfaces that delight users and drive business results.',
+      services: [
+        'User Research & Analysis',
+        'Information Architecture',
+        'Wireframing & Prototyping',
+        'Visual Design & Branding',
+        'Interaction Design',
+        'Usability Testing',
+        'Design Systems',
+        'Mobile App Design',
+        'Web App Design',
+        'Dashboard & Analytics Design',
+        'Responsive Design',
+        'Accessibility Compliance'
+      ],
+      process: [
+        { step: 'Research', description: 'Understanding users and their needs' },
+        { step: 'Ideation', description: 'Generating creative solutions' },
+        { step: 'Prototyping', description: 'Building interactive mockups' },
+        { step: 'Testing', description: 'Validating with real users' }
+      ],
+      stats: [
+        { value: 150, label: 'Apps Designed', suffix: '+' },
+        { value: 95, label: 'User Satisfaction', suffix: '%' },
+        { value: 40, label: 'Conversion Increase', suffix: '%' }
+      ],
+      image: '/5757453.jpg',
+      color: 'from-purple-600/20 to-pink-600/20'
+    },
+    video: {
+      id: 'video',
+      title: 'Video Production',
+      subtitle: 'Compelling Visual Stories',
+      description: 'Professional video production services that captivate audiences and convey your message powerfully.',
+      services: [
+        'Corporate Videos',
+        'Product Demos',
+        'Explainer Videos',
+        'Social Media Content',
+        'Motion Graphics',
+        '2D/3D Animation',
+        'Video Editing',
+        'Color Grading',
+        'Sound Design',
+        'Promotional Videos',
+        'Event Coverage',
+        'Documentary Production'
+      ],
+      process: [
+        { step: 'Planning', description: 'Concept development and scripting' },
+        { step: 'Production', description: 'Professional filming and recording' },
+        { step: 'Post-Production', description: 'Editing and enhancement' },
+        { step: 'Delivery', description: 'Final output in required formats' }
+      ],
+      stats: [
+        { value: 500, label: 'Videos Produced', suffix: '+' },
+        { value: 10, label: 'Million Views', suffix: 'M+' },
+        { value: 4, label: 'K Video Quality', suffix: 'K' }
+      ],
+      image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800',
+      color: 'from-red-600/20 to-orange-600/20'
     }
   };
 
@@ -96,28 +164,9 @@ const DesignServices: React.FC = () => {
           ref={heroRef}
           animate={heroControls}
           initial="hidden"
-          className="relative min-h-[70vh] flex items-center overflow-hidden"
+          className="relative py-20 flex items-center"
         >
-          <div className="absolute inset-0">
-            <motion.div
-              className="absolute inset-0 opacity-30"
-              animate={{
-                backgroundPosition: ['0% 0%', '100% 100%'],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                repeatType: 'reverse',
-              }}
-              style={{
-                backgroundImage: 'url(https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=1600)',
-                backgroundSize: 'cover',
-                filter: 'brightness(0.3)',
-              }}
-            />
-          </div>
-
-          <div className="relative z-10 max-width-container section-padding py-20">
+          <div className="max-width-container section-padding">
             <motion.h1
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -140,7 +189,7 @@ const DesignServices: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-4 mt-12"
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-8 md:mt-12 max-w-5xl mx-auto"
             >
               {Object.values(services).map((service, index) => (
                 <motion.button
@@ -149,7 +198,7 @@ const DesignServices: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.6 + index * 0.1 }}
                   onClick={() => setActiveService(service.id)}
-                  className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  className={`px-3 md:px-6 py-3 md:py-4 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 ${
                     activeService === service.id
                       ? 'bg-gradient-primary text-white shadow-lg shadow-primary/30'
                       : 'glass-card text-text-secondary hover:text-text-primary'
@@ -172,24 +221,24 @@ const DesignServices: React.FC = () => {
             className="py-20"
           >
             <div className="max-width-container section-padding">
-              <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center mb-12 md:mb-20">
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
-                  className="space-y-6"
+                  className="space-y-4 md:space-y-6"
                 >
-                  <h2 className="text-4xl font-bold text-text-primary">
+                  <h2 className="text-2xl md:text-4xl font-bold text-text-primary">
                     {currentService.title}
                   </h2>
-                  <p className="text-2xl text-gradient font-semibold">
+                  <p className="text-lg md:text-2xl text-gradient font-semibold">
                     {currentService.subtitle}
                   </p>
-                  <p className="text-lg text-text-secondary">
+                  <p className="text-base md:text-lg text-text-secondary">
                     {currentService.description}
                   </p>
 
-                  <div className="grid grid-cols-2 gap-4 mt-8">
+                  <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6 md:mt-8">
                     {currentService.services.map((service, index) => (
                       <motion.div
                         key={index}
@@ -199,7 +248,7 @@ const DesignServices: React.FC = () => {
                         className="flex items-center space-x-2"
                       >
                         <span className="text-accent-cyan">✦</span>
-                        <span className="text-text-secondary text-sm">{service}</span>
+                        <span className="text-text-secondary text-xs md:text-sm">{service}</span>
                       </motion.div>
                     ))}
                   </div>
@@ -215,21 +264,21 @@ const DesignServices: React.FC = () => {
                   <img
                     src={currentService.image}
                     alt={currentService.title}
-                    className="relative rounded-2xl shadow-2xl w-full"
+                    className="relative rounded-2xl shadow-2xl w-full max-h-64 md:max-h-96 lg:max-h-none object-cover"
                   />
                 </motion.div>
               </div>
 
-              <div ref={statsRef} className="grid md:grid-cols-3 gap-8 mb-20">
+              <div ref={statsRef} className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-20">
                 {currentService.stats.map((stat, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 30 }}
                     animate={statsInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: index * 0.2 }}
-                    className="glass-card p-8 text-center"
+                    className="glass-card p-6 md:p-8 text-center"
                   >
-                    <div className="text-4xl font-bold text-gradient mb-2">
+                    <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">
                       {statsInView && (
                         <CountUp
                           end={stat.value}
@@ -238,16 +287,16 @@ const DesignServices: React.FC = () => {
                         />
                       )}
                     </div>
-                    <div className="text-text-secondary">{stat.label}</div>
+                    <div className="text-text-secondary text-sm md:text-base">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="bg-dark-section rounded-3xl p-12">
-                <h3 className="text-3xl font-bold text-text-primary mb-8 text-center">
+              <div className="bg-dark-section rounded-2xl md:rounded-3xl p-6 md:p-12">
+                <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-6 md:mb-8 text-center">
                   Our Process
                 </h3>
-                <div className="grid md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                   {currentService.process.map((step, index) => (
                     <motion.div
                       key={index}
@@ -260,8 +309,8 @@ const DesignServices: React.FC = () => {
                       <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-xl">
                         {index + 1}
                       </div>
-                      <h4 className="text-lg font-semibold text-primary mb-2">{step.step}</h4>
-                      <p className="text-text-secondary text-sm">{step.description}</p>
+                      <h4 className="text-base md:text-lg font-semibold text-primary mb-2">{step.step}</h4>
+                      <p className="text-text-secondary text-xs md:text-sm">{step.description}</p>
                     </motion.div>
                   ))}
                 </div>

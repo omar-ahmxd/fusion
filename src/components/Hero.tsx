@@ -66,17 +66,17 @@ const Hero: React.FC = () => {
   };
 
   const printServices = [
-    { icon: '🖨️', label: 'Digital Print', link: '/services/printing' },
-    { icon: '📄', label: 'Offset', link: '/services/printing' },
-    { icon: '✨', label: 'UV Coating', link: '/services/printing' },
-    { icon: '✂️', label: 'Finishing', link: '/services/printing' },
+    { icon: '🖨️', label: 'Multicolour Offset', link: '/services/printing' },
+    { icon: '✨', label: 'UV Printing', link: '/services/printing' },
+    { icon: '✂️', label: 'Finishing Services', link: '/services/printing' },
+    { icon: '🎯', label: 'Speciality Printing', link: '/services/printing' },
   ];
 
   const designServices = [
     { icon: '🎨', label: 'Graphic Design', link: '/services/design' },
-    { icon: '💻', label: 'Web Dev', link: '/services/design' },
-    { icon: '🎬', label: 'Video', link: '/services/design' },
-    { icon: '🚀', label: 'Branding', link: '/services/design' },
+    { icon: '💻', label: 'Web Development', link: '/services/design' },
+    { icon: '📱', label: 'UI/UX Design', link: '/services/design' },
+    { icon: '🎬', label: 'Video Production', link: '/services/design' },
   ];
 
   return (

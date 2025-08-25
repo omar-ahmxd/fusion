@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { submitQuoteForm } from '../services/api';
 
 interface FormData {
   name: string;
@@ -56,11 +57,23 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setShowSuccess(true);
-    // Don't auto-hide the success message
+    try {
+      await submitQuoteForm({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        serviceType: formData.serviceType,
+        projectDescription: formData.description,
+        budget: formData.budget,
+        timeline: formData.timeline,
+      });
+      setShowSuccess(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit quote request. Please try again.');
+    }
   };
 
   const handleNewSubmission = () => {
@@ -275,7 +288,7 @@ const Contact: React.FC = () => {
                   <span className="text-primary mr-3">📞</span>
                   <div>
                     <p className="font-medium text-sm sm:text-base">Phone</p>
-                    <p className="text-gray-600 text-sm sm:text-base">9841100373</p>
+                    <p className="text-gray-600 text-sm sm:text-base">+91 984 1100 373</p>
                   </div>
                 </div>
                 <div className="flex items-start">

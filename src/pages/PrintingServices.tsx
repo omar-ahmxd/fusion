@@ -20,7 +20,7 @@ const PrintingServices: React.FC = () => {
 
   const services: Service[] = [
     {
-      title: 'Digital & Offset Printing',
+      title: 'Multicolour Offset Printing',
       description: 'State-of-the-art printing technology for exceptional quality and precision.',
       features: [
         'Multi-color and black & white printing',
@@ -68,7 +68,7 @@ const PrintingServices: React.FC = () => {
         'Perforation'
       ],
       icon: '✂️',
-      image: '/finishing-services.png',
+      image: '/finishing-services-new.png',
       specifications: [
         { label: 'Cutting', value: 'All types of papers and boards' },
         { label: 'Lamination Types', value: 'Gloss, Matte, Thermal' },
@@ -137,41 +137,41 @@ const PrintingServices: React.FC = () => {
           variants={staggerContainer}
           className="max-width-container section-padding py-20"
         >
-          <div className="grid lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-12">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 variants={glassCard}
                 whileHover="hover"
                 onClick={() => setSelectedService(index)}
-                className={`glass-card p-6 cursor-pointer transition-all duration-300 ${
+                className={`glass-card p-4 md:p-6 cursor-pointer transition-all duration-300 ${
                   selectedService === index ? 'ring-2 ring-primary' : ''
                 }`}
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-text-primary mb-2">{service.title}</h3>
-                <p className="text-text-secondary text-sm">{service.description}</p>
+                <div className="text-2xl md:text-4xl mb-2 md:mb-4">{service.icon}</div>
+                <h3 className="text-sm md:text-xl font-bold text-text-primary mb-1 md:mb-2">{service.title}</h3>
+                <p className="text-text-secondary text-xs md:text-sm line-clamp-2 md:line-clamp-none">{service.description}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
             <motion.div
               key={selectedService}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="space-y-4 md:space-y-6"
             >
-              <h2 className="text-4xl font-bold text-text-primary">
+              <h2 className="text-2xl md:text-4xl font-bold text-text-primary">
                 {services[selectedService].title}
               </h2>
-              <p className="text-lg text-text-secondary">
+              <p className="text-base md:text-lg text-text-secondary">
                 {services[selectedService].description}
               </p>
               
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-primary">Key Features</h3>
+              <div className="space-y-3 md:space-y-4">
+                <h3 className="text-lg md:text-xl font-semibold text-primary">Key Features</h3>
                 {services[selectedService].features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -180,24 +180,24 @@ const PrintingServices: React.FC = () => {
                     transition={{ delay: index * 0.1 }}
                     className="flex items-start space-x-3"
                   >
-                    <span className="text-accent-cyan mt-1">✓</span>
-                    <span className="text-text-secondary">{feature}</span>
+                    <span className="text-accent-cyan mt-1 text-sm md:text-base">✓</span>
+                    <span className="text-text-secondary text-sm md:text-base">{feature}</span>
                   </motion.div>
                 ))}
               </div>
 
               {services[selectedService].specifications && (
-                <div className="grid grid-cols-2 gap-4 mt-8">
+                <div className="grid grid-cols-2 gap-3 md:gap-4 mt-6 md:mt-8">
                   {services[selectedService].specifications.map((spec, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="glass-card p-4"
+                      className="glass-card p-3 md:p-4"
                     >
-                      <div className="text-sm text-text-muted">{spec.label}</div>
-                      <div className="text-lg font-semibold text-primary">{spec.value}</div>
+                      <div className="text-xs md:text-sm text-text-muted">{spec.label}</div>
+                      <div className="text-sm md:text-lg font-semibold text-primary">{spec.value}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -215,7 +215,7 @@ const PrintingServices: React.FC = () => {
               <img
                 src={services[selectedService].image}
                 alt={services[selectedService].title}
-                className="relative rounded-2xl shadow-2xl w-full"
+                className="relative rounded-2xl shadow-2xl w-full max-h-64 md:max-h-96 lg:max-h-none object-cover"
               />
             </motion.div>
           </div>
@@ -230,15 +230,15 @@ const PrintingServices: React.FC = () => {
               variants={staggerContainer}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-text-primary mb-3 md:mb-4">
                 Materials We Work With
               </h2>
-              <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+              <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
                 From standard paper to specialty materials, we handle it all with precision
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
               {materials.map((material, index) => (
                 <motion.div
                   key={index}
@@ -246,13 +246,13 @@ const PrintingServices: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="glass-card p-6 hover:border-primary transition-colors duration-300"
+                  className="glass-card p-4 md:p-6 hover:border-primary transition-colors duration-300"
                 >
-                  <h3 className="text-xl font-bold text-primary mb-4">{material.name}</h3>
-                  <ul className="space-y-2">
+                  <h3 className="text-base md:text-xl font-bold text-primary mb-3 md:mb-4">{material.name}</h3>
+                  <ul className="space-y-1 md:space-y-2">
                     {material.types.map((type, typeIndex) => (
-                      <li key={typeIndex} className="text-text-secondary flex items-center">
-                        <span className="text-accent-cyan mr-2">•</span>
+                      <li key={typeIndex} className="text-text-secondary flex items-center text-xs md:text-base">
+                        <span className="text-accent-cyan mr-1 md:mr-2">•</span>
                         {type}
                       </li>
                     ))}
@@ -264,17 +264,90 @@ const PrintingServices: React.FC = () => {
         </section>
 
         <section className="py-20">
-          <div className="max-width-container section-padding text-center">
+          <div className="max-width-container section-padding">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-text-primary mb-3 md:mb-4">
+                Delivery Services
+              </h2>
+              <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
+                Fast and reliable delivery options to get your prints where they need to be
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6 mb-12 md:mb-20">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                viewport={{ once: true }}
+                className="glass-card p-4 md:p-6 text-center hover:border-primary transition-colors duration-300"
+              >
+                <div className="text-2xl md:text-3xl mb-3 md:mb-4">🚚</div>
+                <h3 className="text-base md:text-lg font-bold text-primary mb-2">Courier Service</h3>
+                <p className="text-text-secondary text-xs md:text-sm">
+                  Express courier delivery for urgent documents and packages
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+                className="glass-card p-4 md:p-6 text-center hover:border-primary transition-colors duration-300"
+              >
+                <div className="text-2xl md:text-3xl mb-3 md:mb-4">👤</div>
+                <h3 className="text-base md:text-lg font-bold text-primary mb-2">Porter Service</h3>
+                <p className="text-text-secondary text-xs md:text-sm">
+                  Professional porter assistance for bulk deliveries and heavy items
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                viewport={{ once: true }}
+                className="glass-card p-4 md:p-6 text-center hover:border-primary transition-colors duration-300"
+              >
+                <div className="text-2xl md:text-3xl mb-3 md:mb-4">📦</div>
+                <h3 className="text-base md:text-lg font-bold text-primary mb-2">FPD Service</h3>
+                <p className="text-text-secondary text-xs md:text-sm">
+                  Fast Parcel Delivery for time-sensitive shipments
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                viewport={{ once: true }}
+                className="glass-card p-4 md:p-6 text-center hover:border-primary transition-colors duration-300"
+              >
+                <div className="text-2xl md:text-3xl mb-3 md:mb-4">🤝</div>
+                <h3 className="text-base md:text-lg font-bold text-primary mb-2">Personal Delivery</h3>
+                <p className="text-text-secondary text-xs md:text-sm">
+                  Hand-delivered by our trusted staff for confidential documents
+                </p>
+              </motion.div>
+            </div>
+
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="glass-card p-12 bg-gradient-to-r from-primary/10 to-accent-cyan/10"
+              className="glass-card p-8 md:p-12 bg-gradient-to-r from-primary/10 to-accent-cyan/10 text-center"
             >
-              <h2 className="text-3xl font-bold text-text-primary mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-3 md:mb-4">
                 Ready to Start Your Printing Project?
               </h2>
-              <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-text-secondary mb-6 md:mb-8 max-w-2xl mx-auto">
                 Get a free consultation and quote for your printing needs. Our experts are ready to help.
               </p>
               <a href="/contact" className="btn-primary">

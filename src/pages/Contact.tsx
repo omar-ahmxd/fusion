@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import { fadeInUp, staggerContainer } from '../animations/variants';
+// import { submitQuoteForm } from '../services/api';
 
 interface FormData {
   name: string;
@@ -108,10 +109,25 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setShowSuccess(true);
+    try {
+      // Temporarily simulate form submission
+      console.log('Form submitted:', {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        serviceType: formData.serviceType,
+        projectDescription: formData.projectDetails + (formData.personalNote ? `\n\nNote: ${formData.personalNote}` : '') + (formData.services.length > 0 ? `\n\nSelected Services: ${formData.services.join(', ')}` : ''),
+        timeline: formData.timeline,
+      });
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setShowSuccess(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit quote request. Please try again.');
+    }
   };
 
   const handleNewSubmission = () => {
@@ -454,7 +470,7 @@ const Contact: React.FC = () => {
                 <div className="space-y-4">
                   <div>
                     <div className="text-text-secondary text-sm">Phone</div>
-                    <div className="text-text-primary">9841100373</div>
+                    <div className="text-text-primary">+91 984 1100 373</div>
                   </div>
                   <div>
                     <div className="text-text-secondary text-sm">Email</div>

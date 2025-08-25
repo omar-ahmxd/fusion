@@ -5,33 +5,17 @@ import { Link } from 'react-router-dom';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
-    services: [
-      { label: 'Printing Services', href: '/services/printing' },
-      { label: 'Design Services', href: '/services/design' },
-      { label: 'Web Development', href: '/services/design' },
-      { label: 'Video Production', href: '/services/design' }
-    ],
-    company: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Portfolio', href: '/portfolio' },
-      { label: 'Contact', href: '/contact' },
-      { label: 'Get Quote', href: '/contact' }
-    ],
-  };
-
   const socialLinks = [
-    { icon: 'facebook', href: '#' },
-    { icon: 'twitter', href: '#' },
-    { icon: 'instagram', href: '#' },
+    { icon: 'facebook', href: 'https://www.facebook.com/share/1BV843PS2Z' },
+    { icon: 'instagram', href: 'https://www.instagram.com/fusionprintdesigns/' },
     { icon: 'linkedin', href: '#' }
   ];
 
   return (
     <footer className="bg-dark-section border-t border-dark-border">
       <div className="max-width-container section-padding py-12 sm:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
-          <div className="lg:col-span-2">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 mb-8 sm:mb-12">
+          <div className="lg:max-w-md">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -82,51 +66,6 @@ const Footer: React.FC = () => {
             </motion.div>
           </div>
 
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-3 sm:mb-4">Services</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                {footerLinks.services.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      to={link.href}
-                      className="text-sm sm:text-base text-text-secondary hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <h3 className="text-base sm:text-lg font-semibold text-text-primary mb-3 sm:mb-4">Company</h3>
-              <ul className="space-y-2 sm:space-y-3">
-                {footerLinks.company.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      to={link.href}
-                      className="text-sm sm:text-base text-text-secondary hover:text-primary transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
 
         </div>
 
