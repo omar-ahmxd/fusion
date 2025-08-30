@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -24,8 +24,6 @@ import Contact from './pages/Contact';
 // import ProtectedRoute from './components/ProtectedRoute';
 
 function AppContent() {
-  const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin');
 
   useEffect(() => {
     AOS.init({
